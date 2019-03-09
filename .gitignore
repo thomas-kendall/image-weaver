@@ -41,6 +41,7 @@ dependency-reduced-pom.xml
 .classpath
 .project
 .settings/
+.recommenders/
 
 # IntelliJ IDEA Files
 
