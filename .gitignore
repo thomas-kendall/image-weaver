@@ -51,3 +51,5 @@ dependency-reduced-pom.xml
 *.idea
 
 README.html
+
+output/
