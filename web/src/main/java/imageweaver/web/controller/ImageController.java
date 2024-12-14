@@ -34,7 +34,7 @@ public class ImageController {
 	public byte[] getObamaGrayscale() throws IOException {
 		InputStream inputStream = resource.getInputStream();
 		BufferedImage image = ImageIO.read(inputStream);
-		BufferedImage grayscaleImage = ImageService.convertToGrayscale(image, image.getWidth(), image.getHeight());
+		BufferedImage grayscaleImage = ImageService.convertToGrayscale(image);
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 		ImageIO.write(grayscaleImage, "jpg", outputStream);
 		return outputStream.toByteArray();
@@ -54,10 +54,10 @@ public class ImageController {
 	public byte[] getObamaWeaved() throws IOException {
 		InputStream inputStream = resource.getInputStream();
 		BufferedImage image = ImageIO.read(inputStream);
-		BufferedImage grayscaleImage = ImageService.convertToGrayscale(image, image.getWidth(), image.getHeight());
+		BufferedImage grayscaleImage = ImageService.convertToGrayscale(image);
 
-		ImageWeaver weaver = new ImageWeaver(50, grayscaleImage, 600);
-		weaver.weave(10000);
+		ImageWeaver weaver = new ImageWeaver(grayscaleImage, 50, 600, 10000, 20);
+		weaver.weave();
 		BufferedImage weavedImage = weaver.getWeavedImage();
 
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();

@@ -20,8 +20,8 @@ public class ImageWeaverTests {
 		InputStream inputStream = getClass().getClassLoader().getResource("images/obama-headshot.jpg").openStream();
 		BufferedImage image = ImageIO.read(inputStream);
 
-		ImageWeaver weaver = new ImageWeaver(100, image, 600);
-		weaver.weave(10000);
+		ImageWeaver weaver = new ImageWeaver(image, 100, 800, 1000, 30);
+		weaver.weave();
 		BufferedImage weavedImage = weaver.getWeavedImage();
 
 		ImageIO.write(weavedImage, "jpg",
